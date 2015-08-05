@@ -1,6 +1,6 @@
 class ActorsController < ApplicationController
   def index
-    @actors = Actor.all
+    @actor = Actor.all
   end
 
   def show
@@ -8,6 +8,7 @@ class ActorsController < ApplicationController
   end
 
   def new_form
+    @actor = Actor.find(params[:id])
   end
 
   def create_row
@@ -36,7 +37,6 @@ class ActorsController < ApplicationController
 
     @actor.save
 
-    render("show")
   end
 
   def destroy
